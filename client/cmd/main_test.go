@@ -12,7 +12,8 @@ import (
 
 	api "weather-tracker/client/cmd/api"
 	"weather-tracker/client/internal/assert"
-	weatherv1 "weather-tracker/pb/weather/v1"
+
+	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 
 	"google.golang.org/grpc"
 )
