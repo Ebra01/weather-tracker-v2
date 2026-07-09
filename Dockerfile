@@ -4,19 +4,28 @@ FROM golang:1.26-alpine AS source
 
 WORKDIR /src
 
-COPY go.mod go.sum ./
-RUN go mod download
+COPY go.work go.work.sum ./
+COPY client/go.mod client/go.sum ./client/
+COPY pb/go.mod pb/go.sum ./pb/
+COPY server/go.mod server/go.sum ./server/
+RUN cd pb && go mod download \
+	&& cd ../server && go mod download \
+	&& cd ../client && go mod download
 
 COPY . .
 
 FROM source AS test
 
-CMD ["go", "test", "./..."]
+CMD ["go", "test", "./client/...", "./pb/...", "./server/..."]
 
 FROM source AS build
 
-ARG APP=cmd/server
-RUN CGO_ENABLED=0 GOOS=linux go build -o /out/weather-app ./${APP}
+ARG APP=server/cmd
+RUN case "${APP}" in \
+	cmd/server) APP=server/cmd ;; \
+	cmd/client) APP=client/cmd ;; \
+	esac; \
+	CGO_ENABLED=0 GOOS=linux go build -o /out/weather-app "./${APP}"
 
 FROM alpine:3.22
 
