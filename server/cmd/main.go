@@ -9,8 +9,9 @@ import (
 	"net"
 	"os"
 
-	weatherv1 "weather-tracker/pb/weather/v1"
 	"weather-tracker/server/internal/weatherdb"
+
+	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/mmcloughlin/geohash"

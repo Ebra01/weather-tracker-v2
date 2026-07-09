@@ -1,4 +1,4 @@
-module weather-tracker/pb
+module github.com/ebra01/weather-tracker-v2/pb
 
 go 1.26.4
 

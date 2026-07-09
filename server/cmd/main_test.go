@@ -9,8 +9,9 @@ import (
 	"testing"
 	"time"
 
-	weatherv1 "weather-tracker/pb/weather/v1"
 	"weather-tracker/server/internal/assert"
+
+	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 
 	"github.com/mmcloughlin/geohash"
 )
