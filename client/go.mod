@@ -3,6 +3,7 @@ module github.com/ebra01/weather-tracker-v2/client
 go 1.26.4
 
 require (
+	github.com/ebra01/weather-tracker-v2/pb v0.0.0-20260709095951-8e9ecb00b532
 	github.com/oapi-codegen/runtime v1.4.2
 	google.golang.org/grpc v1.82.0
 )
