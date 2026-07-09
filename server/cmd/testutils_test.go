@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"weather-tracker/server/internal/weatherdb"
+	"github.com/ebra01/weather-tracker-v2/server/internal/weatherdb"
 )
 
 type testDBState struct {

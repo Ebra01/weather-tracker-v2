@@ -1,4 +1,4 @@
-module weather-tracker/client
+module github.com/ebra01/weather-tracker-v2/client
 
 go 1.26.4
 

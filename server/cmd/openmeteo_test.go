@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"weather-tracker/server/internal/assert"
+	"github.com/ebra01/weather-tracker-v2/server/internal/assert"
 )
 
 func TestGetWeatherData(t *testing.T) {

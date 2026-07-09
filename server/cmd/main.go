@@ -9,7 +9,7 @@ import (
 	"net"
 	"os"
 
-	"weather-tracker/server/internal/weatherdb"
+	"github.com/ebra01/weather-tracker-v2/server/internal/weatherdb"
 
 	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 

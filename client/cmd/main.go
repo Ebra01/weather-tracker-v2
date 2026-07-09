@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	client "weather-tracker/client/cmd/api"
+	client "github.com/ebra01/weather-tracker-v2/client/cmd/api"
 
 	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 

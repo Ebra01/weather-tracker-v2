@@ -10,8 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	api "weather-tracker/client/cmd/api"
-	"weather-tracker/client/internal/assert"
+	"github.com/ebra01/weather-tracker-v2/client/internal/assert"
+
+	api "github.com/ebra01/weather-tracker-v2/client/cmd/api"
 
 	weatherv1 "github.com/ebra01/weather-tracker-v2/pb/weather/v1"
 
