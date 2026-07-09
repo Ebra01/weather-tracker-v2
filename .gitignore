@@ -4,3 +4,5 @@ postman/
 
 _*.md
 *.png
+
+**/.DS_Store
