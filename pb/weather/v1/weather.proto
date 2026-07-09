@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package weather.v1;
+
+option go_package = "weather-tracker/pb/weather/v1;weatherv1";
+
+message GetWeatherRequest {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+message GetWeatherResponse {
+    double temperature = 1;
+    double humidity = 2;
+    double elevation = 3;
+}
+
+service WeatherService {
+    rpc GetWeather(GetWeatherRequest) returns (GetWeatherResponse);
+}

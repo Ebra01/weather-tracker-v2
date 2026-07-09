@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: web
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: weatherapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U web -d weatherapp"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  server:
+    build:
+      context: .
+      args:
+        APP: cmd/server
+    environment:
+      DATABASE_URL: postgres://web:pass@db:5432/weatherapp?sslmode=disable
+    depends_on:
+      db:
+        condition: service_healthy
+
+  client:
+    build:
+      context: .
+      args:
+        APP: cmd/client
+    environment:
+      GRPC_ADDR: server:50051
+    ports:
+      - "8080:8080"
+    depends_on:
+      - server
+
+  test:
+    build:
+      context: .
+      target: test
+    profiles:
+      - test
+
+volumes:
+  postgres-data:

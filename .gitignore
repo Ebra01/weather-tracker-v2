@@ -1,0 +1,6 @@
+.postman/
+.vscode/
+postman/
+
+_*.md
+*.png
