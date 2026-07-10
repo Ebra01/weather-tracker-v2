@@ -44,7 +44,7 @@ func FetchCurrentWeather(lat, long float64, result *Result) (Result, error) {
 		return Result{}, err
 	}
 
-	// Populate result with data from OpenMeteo
+	// Populate result with data from OpenMeteo API
 	result.Temperature = weather.Current.Temperature
 	result.Elevation = weather.Elevation
 	result.Humidity = weather.Current.Humidity

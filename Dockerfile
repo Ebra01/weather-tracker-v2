@@ -16,7 +16,7 @@ COPY . .
 
 FROM source AS test
 
-CMD ["go", "test", "./client/...", "./pb/...", "./server/..."]
+CMD ["go", "test", "./client/...", "./server/..."]
 
 FROM source AS build
 

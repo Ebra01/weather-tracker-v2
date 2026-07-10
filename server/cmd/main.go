@@ -98,7 +98,7 @@ func (s *server) SaveTemperature(ctx context.Context, result Result) error {
 func (s *server) GetWeather(ctx context.Context, in *weatherv1.GetWeatherRequest) (*weatherv1.GetWeatherResponse, error) {
 
 	var result Result
-	// Check the database to get the value.
+	// Check the database to get the value (rule: data needs to be no more than 5 minutes old).
 	result, ok, err := s.GetDataFromCache(ctx, in.Latitude, in.Longitude)
 	if ok {
 		log.Println("Cache Hit - Retrieving data from database...")
